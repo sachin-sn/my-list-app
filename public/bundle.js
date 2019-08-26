@@ -257,7 +257,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (47:0) {#each list as item}
+    // (83:0) {#each list as item}
     function create_each_block(ctx) {
     	var section2, label0, t0_value = ctx.item.name + "", t0, t1, t2_value = ctx.item.description + "", t2, t3, section0, label1, t5, input0, t6, section1, label2, t8, input1, t9, button, t11;
 
@@ -284,22 +284,22 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Add";
     			t11 = space();
-    			add_location(label0, file, 48, 2, 1156);
-    			add_location(label1, file, 50, 3, 1239);
+    			add_location(label0, file, 84, 2, 2161);
+    			add_location(label1, file, 86, 3, 2244);
     			attr(input0, "type", "number");
     			attr(input0, "class", "input-text");
-    			add_location(input0, file, 51, 3, 1267);
+    			add_location(input0, file, 87, 3, 2272);
     			attr(section0, "class", "input-block");
-    			add_location(section0, file, 49, 2, 1206);
-    			add_location(label2, file, 54, 3, 1357);
+    			add_location(section0, file, 85, 2, 2211);
+    			add_location(label2, file, 90, 3, 2362);
     			attr(input1, "type", "number");
     			attr(input1, "class", "input-text");
-    			add_location(input1, file, 55, 3, 1383);
+    			add_location(input1, file, 91, 3, 2388);
     			attr(section1, "class", "input-block");
-    			add_location(section1, file, 53, 2, 1324);
-    			add_location(button, file, 57, 2, 1440);
+    			add_location(section1, file, 89, 2, 2329);
+    			add_location(button, file, 93, 2, 2445);
     			attr(section2, "class", "listItem");
-    			add_location(section2, file, 47, 1, 1127);
+    			add_location(section2, file, 83, 1, 2132);
     		},
 
     		m: function mount(target, anchor) {
@@ -357,11 +357,11 @@ var app = (function () {
     				each_blocks[i].c();
     			}
     			attr(a, "href", "/");
-    			add_location(a, file, 43, 1, 1060);
-    			add_location(header, file, 42, 0, 1050);
-    			add_location(main, file, 45, 0, 1098);
+    			add_location(a, file, 79, 1, 2065);
+    			add_location(header, file, 78, 0, 2055);
+    			add_location(main, file, 81, 0, 2103);
     			attr(div, "id", "bg");
-    			add_location(div, file, 41, 0, 1036);
+    			add_location(div, file, 77, 0, 2041);
     		},
 
     		l: function claim(nodes) {
@@ -450,6 +450,42 @@ var app = (function () {
     	},
     	{
     		name:"Item 6",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 7",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 8",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 9",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 10",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 11",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 12",
     		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
     		quantity:0,
     		amount:0

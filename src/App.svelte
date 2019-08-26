@@ -35,6 +35,42 @@ let list = [
 		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
 		quantity:0,
 		amount:0
+	},
+	{
+		name:"Item 7",
+		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+		quantity:0,
+		amount:0
+	},
+	{
+		name:"Item 8",
+		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+		quantity:0,
+		amount:0
+	},
+	{
+		name:"Item 9",
+		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+		quantity:0,
+		amount:0
+	},
+	{
+		name:"Item 10",
+		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+		quantity:0,
+		amount:0
+	},
+	{
+		name:"Item 11",
+		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+		quantity:0,
+		amount:0
+	},
+	{
+		name:"Item 12",
+		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+		quantity:0,
+		amount:0
 	}
 ]
 </script>
