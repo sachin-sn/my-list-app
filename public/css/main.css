@@ -130,10 +130,16 @@ main section.listItem {
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   width: 80%;
+  line-height: 1.5em;
 }
 
 main section.listItem label {
   font-weight: bold;
+}
+
+main section.listItem span {
+  font-weight: lighter;
+  color: royalblue;
 }
 
 @media (min-width: 800px) {

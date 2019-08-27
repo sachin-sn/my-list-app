@@ -65,6 +65,11 @@ var app = (function () {
     function children(element) {
         return Array.from(element.childNodes);
     }
+    function set_data(text, data) {
+        data = '' + data;
+        if (text.data !== data)
+            text.data = data;
+    }
     function set_input_value(input, value) {
         if (value != null || input.value) {
             input.value = value;
@@ -270,9 +275,13 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (35:0) {#each list as item,index}
+    // (68:0) {#each list as item,index}
     function create_each_block(ctx) {
-    	var section, p, label0, t0_value = ctx.index+1 + "", t0, t1, t2_value = ctx.item.name + "", t2, br0, t3, label1, t5, t6_value = ctx.item.quantity + "", t6, br1, t7, label2, t9, t10_value = ctx.item.amount + "", t10, t11, button, t13;
+    	var section, p, label0, t0_value = ctx.index+1 + "", t0, t1, t2_value = ctx.item.name + "", t2, br0, t3, label1, t5, span0, t6_value = ctx.item.quantity + "", t6, br1, t7, label2, t9, span1, t10_value = ctx.item.amount + "", t10, br2, t11, label3, t13, span2, t14_value = ctx.item.amount * ctx.item.quantity + "", t14, t15, button, t17, dispose;
+
+    	function click_handler(...args) {
+    		return ctx.click_handler(ctx, ...args);
+    	}
 
     	return {
     		c: function create() {
@@ -286,28 +295,43 @@ var app = (function () {
     			t3 = space();
     			label1 = element("label");
     			label1.textContent = "Quantity";
-    			t5 = text(" - ");
+    			t5 = text(" : ");
+    			span0 = element("span");
     			t6 = text(t6_value);
     			br1 = element("br");
     			t7 = space();
     			label2 = element("label");
-    			label2.textContent = "Amount";
-    			t9 = text(" - ");
+    			label2.textContent = "M.R.P per piece";
+    			t9 = text(" : ");
+    			span1 = element("span");
     			t10 = text(t10_value);
+    			br2 = element("br");
     			t11 = space();
+    			label3 = element("label");
+    			label3.textContent = "Total price";
+    			t13 = text(" : ");
+    			span2 = element("span");
+    			t14 = text(t14_value);
+    			t15 = space();
     			button = element("button");
     			button.textContent = "Delete";
-    			t13 = space();
-    			add_location(label0, file, 37, 3, 760);
-    			add_location(br0, file, 37, 40, 797);
-    			add_location(label1, file, 38, 3, 806);
-    			add_location(br1, file, 38, 44, 847);
-    			add_location(label2, file, 39, 3, 856);
-    			add_location(p, file, 36, 2, 753);
+    			t17 = space();
+    			add_location(label0, file, 70, 3, 1485);
+    			add_location(br0, file, 70, 40, 1522);
+    			add_location(label1, file, 71, 3, 1531);
+    			add_location(span0, file, 71, 29, 1557);
+    			add_location(br1, file, 71, 57, 1585);
+    			add_location(label2, file, 72, 3, 1594);
+    			add_location(span1, file, 72, 36, 1627);
+    			add_location(br2, file, 72, 62, 1653);
+    			add_location(label3, file, 73, 3, 1662);
+    			add_location(span2, file, 73, 32, 1691);
+    			add_location(p, file, 69, 2, 1478);
     			attr(button, "class", "failure");
-    			add_location(button, file, 41, 2, 903);
+    			add_location(button, file, 75, 2, 1743);
     			attr(section, "class", "listItem");
-    			add_location(section, file, 35, 1, 724);
+    			add_location(section, file, 68, 1, 1449);
+    			dispose = listen(button, "click", click_handler);
     		},
 
     		m: function mount(target, anchor) {
@@ -321,29 +345,56 @@ var app = (function () {
     			append(p, t3);
     			append(p, label1);
     			append(p, t5);
-    			append(p, t6);
+    			append(p, span0);
+    			append(span0, t6);
     			append(p, br1);
     			append(p, t7);
     			append(p, label2);
     			append(p, t9);
-    			append(p, t10);
-    			append(section, t11);
+    			append(p, span1);
+    			append(span1, t10);
+    			append(p, br2);
+    			append(p, t11);
+    			append(p, label3);
+    			append(p, t13);
+    			append(p, span2);
+    			append(span2, t14);
+    			append(section, t15);
     			append(section, button);
-    			append(section, t13);
+    			append(section, t17);
     		},
 
-    		p: noop,
+    		p: function update(changed, new_ctx) {
+    			ctx = new_ctx;
+    			if ((changed.list) && t2_value !== (t2_value = ctx.item.name + "")) {
+    				set_data(t2, t2_value);
+    			}
+
+    			if ((changed.list) && t6_value !== (t6_value = ctx.item.quantity + "")) {
+    				set_data(t6, t6_value);
+    			}
+
+    			if ((changed.list) && t10_value !== (t10_value = ctx.item.amount + "")) {
+    				set_data(t10, t10_value);
+    			}
+
+    			if ((changed.list) && t14_value !== (t14_value = ctx.item.amount * ctx.item.quantity + "")) {
+    				set_data(t14, t14_value);
+    			}
+    		},
 
     		d: function destroy(detaching) {
     			if (detaching) {
     				detach(section);
     			}
+
+    			dispose();
     		}
     	};
     }
 
     function create_fragment(ctx) {
-    	var div, header, a, t1, main, section3, section0, label0, t3, input0, t4, section1, label1, t6, input1, t7, section2, label2, t9, input2, t10, button0, t12, button1, t14, dispose;
+    	var div, header, a, t1, main, section3, section0, label0, t3, input0, t4, section1, label1, t6, input1, t7, section2, label2, t9, input2, t10, button0, t12, button1, t14, section4, p0, label3, br0, t16, span0, t17, t18, p1, label4, br1, t20, span1, t21_value = ctx.list.length + "", t21, t22, dispose;
 
     	var each_value = ctx.list;
 
@@ -376,7 +427,7 @@ var app = (function () {
     			t7 = space();
     			section2 = element("section");
     			label2 = element("label");
-    			label2.textContent = "Amount:";
+    			label2.textContent = "M.R.P per piece:";
     			t9 = space();
     			input2 = element("input");
     			t10 = space();
@@ -386,45 +437,74 @@ var app = (function () {
     			button1 = element("button");
     			button1.textContent = "Reset";
     			t14 = space();
+    			section4 = element("section");
+    			p0 = element("p");
+    			label3 = element("label");
+    			label3.textContent = "Total cost:";
+    			br0 = element("br");
+    			t16 = space();
+    			span0 = element("span");
+    			t17 = text(ctx.total);
+    			t18 = space();
+    			p1 = element("p");
+    			label4 = element("label");
+    			label4.textContent = "Total no of Items:";
+    			br1 = element("br");
+    			t20 = space();
+    			span1 = element("span");
+    			t21 = text(t21_value);
+    			t22 = space();
 
     			for (var i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
     			attr(a, "href", "/");
-    			add_location(a, file, 15, 1, 139);
-    			add_location(header, file, 14, 0, 129);
-    			add_location(label0, file, 20, 2, 246);
+    			add_location(a, file, 38, 1, 631);
+    			add_location(header, file, 37, 0, 621);
+    			add_location(label0, file, 43, 2, 738);
     			attr(input0, "type", "text");
     			attr(input0, "class", "input-text");
-    			add_location(input0, file, 21, 2, 269);
+    			add_location(input0, file, 44, 2, 761);
     			attr(section0, "class", "input-block");
-    			add_location(section0, file, 19, 1, 214);
-    			add_location(label1, file, 24, 2, 372);
+    			add_location(section0, file, 42, 1, 706);
+    			add_location(label1, file, 47, 2, 864);
     			attr(input1, "type", "number");
     			attr(input1, "class", "input-text");
-    			add_location(input1, file, 25, 2, 399);
+    			add_location(input1, file, 48, 2, 891);
     			attr(section1, "class", "input-block");
-    			add_location(section1, file, 23, 1, 340);
-    			add_location(label2, file, 28, 2, 508);
+    			add_location(section1, file, 46, 1, 832);
+    			add_location(label2, file, 51, 2, 1000);
     			attr(input2, "type", "number");
     			attr(input2, "class", "input-text");
-    			add_location(input2, file, 29, 2, 533);
+    			add_location(input2, file, 52, 2, 1034);
     			attr(section2, "class", "input-block");
-    			add_location(section2, file, 27, 1, 476);
+    			add_location(section2, file, 50, 1, 968);
     			attr(button0, "class", "success");
-    			add_location(button0, file, 31, 1, 608);
+    			add_location(button0, file, 54, 1, 1109);
     			attr(button1, "class", "failure");
-    			add_location(button1, file, 32, 1, 646);
+    			add_location(button1, file, 55, 1, 1166);
     			attr(section3, "class", "input-form");
-    			add_location(section3, file, 18, 0, 184);
-    			add_location(main, file, 17, 0, 177);
+    			add_location(section3, file, 41, 0, 676);
+    			add_location(label3, file, 59, 2, 1267);
+    			add_location(br0, file, 59, 28, 1293);
+    			add_location(span0, file, 60, 3, 1302);
+    			add_location(p0, file, 58, 1, 1261);
+    			add_location(label4, file, 63, 2, 1336);
+    			add_location(br1, file, 63, 35, 1369);
+    			add_location(span1, file, 64, 2, 1377);
+    			add_location(p1, file, 62, 1, 1330);
+    			attr(section4, "class", "listItem");
+    			add_location(section4, file, 57, 0, 1233);
+    			add_location(main, file, 40, 0, 669);
     			attr(div, "id", "bg");
-    			add_location(div, file, 13, 0, 115);
+    			add_location(div, file, 36, 0, 607);
 
     			dispose = [
     				listen(input0, "input", ctx.input0_input_handler),
     				listen(input1, "input", ctx.input1_input_handler),
-    				listen(input2, "input", ctx.input2_input_handler)
+    				listen(input2, "input", ctx.input2_input_handler),
+    				listen(button0, "click", ctx.AddItem),
+    				listen(button1, "click", ctx.reset)
     			];
     		},
 
@@ -467,6 +547,21 @@ var app = (function () {
     			append(section3, t12);
     			append(section3, button1);
     			append(main, t14);
+    			append(main, section4);
+    			append(section4, p0);
+    			append(p0, label3);
+    			append(p0, br0);
+    			append(p0, t16);
+    			append(p0, span0);
+    			append(span0, t17);
+    			append(section4, t18);
+    			append(section4, p1);
+    			append(p1, label4);
+    			append(p1, br1);
+    			append(p1, t20);
+    			append(p1, span1);
+    			append(span1, t21);
+    			append(main, t22);
 
     			for (var i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(main, null);
@@ -477,6 +572,14 @@ var app = (function () {
     			if (changed.name && (input0.value !== ctx.name)) set_input_value(input0, ctx.name);
     			if (changed.quantity) set_input_value(input1, ctx.quantity);
     			if (changed.amount) set_input_value(input2, ctx.amount);
+
+    			if (changed.total) {
+    				set_data(t17, ctx.total);
+    			}
+
+    			if ((changed.list) && t21_value !== (t21_value = ctx.list.length + "")) {
+    				set_data(t21, t21_value);
+    			}
 
     			if (changed.list) {
     				each_value = ctx.list;
@@ -517,13 +620,37 @@ var app = (function () {
 
     function instance($$self, $$props, $$invalidate) {
     	let list = [
-    	{
-    		name:"abcd",
-    		quantity:10,
-    		amount:100
-    	}
     ];
+    let total = 0;
+
     let name, amount, quantity;
+
+    function AddItem(){
+    	if(name && amount && quantity){
+    		let newItem = {
+    			name:name,
+    			amount:amount,
+    			quantity:quantity
+    		};
+    		$$invalidate('list', list = [...list,newItem]);
+    		$$invalidate('total', total = total + (quantity*amount));
+    		$$invalidate('name', name = "");
+    		$$invalidate('amount', amount="");
+    		$$invalidate('quantity', quantity="");
+    	}
+    }
+    function reset(){
+    	$$invalidate('name', name = "");
+    	$$invalidate('amount', amount = "");
+    	$$invalidate('quantity', quantity="");
+    }
+
+    function deleteItem(itemIndex){
+    	let delItem = list.filter((item,index)=>index===itemIndex)[0];
+    	$$invalidate('total', total = total - (delItem.amount * delItem.quantity));
+    	$$invalidate('list', list = list.filter((item,index)=>index!==itemIndex));
+    	$$invalidate('list', list = [...list]);
+    }
 
     	function input0_input_handler() {
     		name = this.value;
@@ -540,14 +667,21 @@ var app = (function () {
     		$$invalidate('amount', amount);
     	}
 
+    	function click_handler({ index }, e) {deleteItem(index);}
+
     	return {
     		list,
+    		total,
     		name,
     		amount,
     		quantity,
+    		AddItem,
+    		reset,
+    		deleteItem,
     		input0_input_handler,
     		input1_input_handler,
-    		input2_input_handler
+    		input2_input_handler,
+    		click_handler
     	};
     }
 

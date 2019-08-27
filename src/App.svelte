@@ -1,13 +1,36 @@
 <script>
 let list = [
-	{
-		name:"abcd",
-		quantity:10,
-		amount:100
-	}
 ];
+let total = 0;
+
 let name, amount, quantity;
 
+function AddItem(){
+	if(name && amount && quantity){
+		let newItem = {
+			name:name,
+			amount:amount,
+			quantity:quantity
+		}
+		list = [...list,newItem];
+		total = total + (quantity*amount);
+		name = "";
+		amount="";
+		quantity="";
+	}
+}
+function reset(){
+	name = "";
+	amount = "";
+	quantity="";
+}
+
+function deleteItem(itemIndex){
+	let delItem = list.filter((item,index)=>index===itemIndex)[0];
+	total = total - (delItem.amount * delItem.quantity);
+	list = list.filter((item,index)=>index!==itemIndex);
+	list = [...list];
+}
 
 </script>
 
@@ -26,20 +49,31 @@ let name, amount, quantity;
 		<input type="number" class="input-text" bind:value={quantity}/>
 	</section>
 	<section class="input-block">
-		<label>Amount:</label>
+		<label>M.R.P per piece:</label>
 		<input type="number" class="input-text" bind:value={amount}/>
 	</section>
-	<button class="success">Add</button>
-	<button class="failure">Reset</button>
+	<button class="success" on:click={AddItem}>Add</button>
+	<button class="failure" on:click={reset}>Reset</button>
+</section>
+<section class="listItem">
+	<p>
+		<label>Total cost:</label><br/>
+			<span>{total}</span>
+	</p>
+	<p>
+		<label>Total no of Items:</label><br/>
+		<span>{list.length}</span>
+	</p>
 </section>
 {#each list as item,index}
 	<section class="listItem">
 		<p>
 			<label>{index+1}. {item.name}</label><br/>
-			<label>Quantity</label> - {item.quantity}<br/>
-			<label>Amount</label> - {item.amount}
+			<label>Quantity</label> : <span>{item.quantity}</span><br/>
+			<label>M.R.P per piece</label> : <span>{item.amount}</span><br/>
+			<label>Total price</label> : <span>{item.amount * item.quantity}</span>
 		</p>
-		<button class="failure">Delete</button>
+		<button class="failure" on:click={(e)=>{deleteItem(index)}}>Delete</button>
 	</section>
 {/each}
 </main>
