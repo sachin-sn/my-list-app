@@ -1,2 +1,515 @@
-var app=function(){"use strict";function t(){}function n(t){return t()}function e(){return Object.create(null)}function o(t){t.forEach(n)}function i(t){return"function"==typeof t}function a(t,n){return t!=t?n==n:t!==n||t&&"object"==typeof t||"function"==typeof t}function u(t,n){t.appendChild(n)}function l(t,n,e){t.insertBefore(n,e||null)}function r(t){t.parentNode.removeChild(t)}function c(t){return document.createElement(t)}function s(t){return document.createTextNode(t)}function f(){return s(" ")}function p(t,n,e,o){return t.addEventListener(n,e,o),()=>t.removeEventListener(n,e,o)}function m(t,n,e){null==e?t.removeAttribute(n):t.setAttribute(n,e)}function d(t){return""===t?void 0:+t}function h(t,n){n=""+n,t.data!==n&&(t.data=n)}function b(t,n){(null!=n||t.value)&&(t.value=n)}let y;function $(t){y=t}const g=[],x=[],_=[],v=[],q=Promise.resolve();let C=!1;function k(t){_.push(t)}function A(){const t=new Set;do{for(;g.length;){const t=g.shift();$(t),w(t.$$)}for(;x.length;)x.pop()();for(let n=0;n<_.length;n+=1){const e=_[n];t.has(e)||(e(),t.add(e))}_.length=0}while(g.length);for(;v.length;)v.pop()();C=!1}function w(t){t.fragment&&(t.update(t.dirty),o(t.before_update),t.fragment.p(t.dirty,t.ctx),t.dirty=null,t.after_update.forEach(k))}const E=new Set;function I(t,n){t.$$.dirty||(g.push(t),C||(C=!0,q.then(A)),t.$$.dirty=e()),t.$$.dirty[n]=!0}function M(a,u,l,r,c,s){const f=y;$(a);const p=u.props||{},m=a.$$={fragment:null,ctx:null,props:s,update:t,not_equal:c,bound:e(),on_mount:[],on_destroy:[],before_update:[],after_update:[],context:new Map(f?f.$$.context:[]),callbacks:e(),dirty:null};let d=!1;var h,b,g;m.ctx=l?l(a,p,(t,n)=>{m.ctx&&c(m.ctx[t],m.ctx[t]=n)&&(m.bound[t]&&m.bound[t](n),d&&I(a,t))}):p,m.update(),d=!0,o(m.before_update),m.fragment=r(m.ctx),u.target&&(u.hydrate?m.fragment.l((g=u.target,Array.from(g.childNodes))):m.fragment.c(),u.intro&&((h=a.$$.fragment)&&h.i&&(E.delete(h),h.i(b))),function(t,e,a){const{fragment:u,on_mount:l,on_destroy:r,after_update:c}=t.$$;u.m(e,a),k(()=>{const e=l.map(n).filter(i);r?r.push(...e):o(e),t.$$.on_mount=[]}),c.forEach(k)}(a,u.target,u.anchor),A()),$(f)}class T{$destroy(){var n,e;e=1,(n=this).$$.fragment&&(o(n.$$.on_destroy),n.$$.fragment.d(e),n.$$.on_destroy=n.$$.fragment=null,n.$$.ctx={}),this.$destroy=t}$on(t,n){const e=this.$$.callbacks[t]||(this.$$.callbacks[t]=[]);return e.push(n),()=>{const t=e.indexOf(n);-1!==t&&e.splice(t,1)}}$set(){}}function L(t,n,e){const o=Object.create(t);return o.item=n[e],o.index=e,o}function N(t){var n,e,o,i,a,d,b,y,$,g,x,_,v,q,C,k,A,w,E,I,M,T,L,N,j,O,P,R,Q=t.index+1+"",S=t.item.name+"",B=t.item.quantity+"",D=t.item.amount+"",H=t.item.amount*t.item.quantity+"";function z(...n){return t.click_handler(t,...n)}return{c(){n=c("section"),e=c("p"),o=c("label"),i=s(Q),a=s(". "),d=s(S),b=c("br"),y=f(),($=c("label")).textContent="Quantity",g=s(" : "),x=c("span"),_=s(B),v=c("br"),q=f(),(C=c("label")).textContent="M.R.P per piece",k=s(" : "),A=c("span"),w=s(D),E=c("br"),I=f(),(M=c("label")).textContent="Total price",T=s(" : "),L=c("span"),N=s(H),j=f(),(O=c("button")).textContent="Delete",P=f(),m(O,"class","failure"),m(n,"class","listItem"),R=p(O,"click",z)},m(t,r){l(t,n,r),u(n,e),u(e,o),u(o,i),u(o,a),u(o,d),u(e,b),u(e,y),u(e,$),u(e,g),u(e,x),u(x,_),u(e,v),u(e,q),u(e,C),u(e,k),u(e,A),u(A,w),u(e,E),u(e,I),u(e,M),u(e,T),u(e,L),u(L,N),u(n,j),u(n,O),u(n,P)},p(n,e){t=e,n.list&&S!==(S=t.item.name+"")&&h(d,S),n.list&&B!==(B=t.item.quantity+"")&&h(_,B),n.list&&D!==(D=t.item.amount+"")&&h(w,D),n.list&&H!==(H=t.item.amount*t.item.quantity+"")&&h(N,H)},d(t){t&&r(n),R()}}}function j(n){for(var e,i,a,d,y,$,g,x,_,v,q,C,k,A,w,E,I,M,T,j,O,P,R,Q,S,B,D,H,z,F,G,J,K,U,V,W,X,Y,Z,tt,nt=n.list.length+"",et=n.list,ot=[],it=0;it<et.length;it+=1)ot[it]=N(L(n,et,it));return{c(){e=c("div"),(i=c("header")).innerHTML='<a href="/">My List App</a>',a=f(),d=c("main"),y=c("section"),$=c("section"),(g=c("label")).textContent="Name:",x=f(),_=c("input"),v=f(),q=c("section"),(C=c("label")).textContent="Quantity:",k=f(),A=c("input"),w=f(),E=c("section"),(I=c("label")).textContent="M.R.P per piece:",M=f(),T=c("input"),j=f(),(O=c("button")).textContent="Add",P=f(),(R=c("button")).textContent="Reset",Q=f(),S=c("section"),B=c("p"),(D=c("label")).textContent="Total cost:",H=c("br"),z=f(),F=c("span"),G=s(n.total),J=f(),K=c("p"),(U=c("label")).textContent="Total no of Items:",V=c("br"),W=f(),X=c("span"),Y=s(nt),Z=f();for(var t=0;t<ot.length;t+=1)ot[t].c();m(_,"type","text"),m(_,"class","input-text"),m($,"class","input-block"),m(A,"type","number"),m(A,"class","input-text"),m(q,"class","input-block"),m(T,"type","number"),m(T,"class","input-text"),m(E,"class","input-block"),m(O,"class","success"),m(R,"class","failure"),m(y,"class","input-form"),m(S,"class","listItem"),m(e,"id","bg"),tt=[p(_,"input",n.input0_input_handler),p(A,"input",n.input1_input_handler),p(T,"input",n.input2_input_handler),p(O,"click",n.AddItem),p(R,"click",n.reset)]},m(t,o){l(t,e,o),u(e,i),u(e,a),u(e,d),u(d,y),u(y,$),u($,g),u($,x),u($,_),b(_,n.name),u(y,v),u(y,q),u(q,C),u(q,k),u(q,A),b(A,n.quantity),u(y,w),u(y,E),u(E,I),u(E,M),u(E,T),b(T,n.amount),u(y,j),u(y,O),u(y,P),u(y,R),u(d,Q),u(d,S),u(S,B),u(B,D),u(B,H),u(B,z),u(B,F),u(F,G),u(S,J),u(S,K),u(K,U),u(K,V),u(K,W),u(K,X),u(X,Y),u(d,Z);for(var r=0;r<ot.length;r+=1)ot[r].m(d,null)},p(t,n){if(t.name&&_.value!==n.name&&b(_,n.name),t.quantity&&b(A,n.quantity),t.amount&&b(T,n.amount),t.total&&h(G,n.total),t.list&&nt!==(nt=n.list.length+"")&&h(Y,nt),t.list){et=n.list;for(var e=0;e<et.length;e+=1){const o=L(n,et,e);ot[e]?ot[e].p(t,o):(ot[e]=N(o),ot[e].c(),ot[e].m(d,null))}for(;e<ot.length;e+=1)ot[e].d(1);ot.length=et.length}},i:t,o:t,d(t){t&&r(e),function(t,n){for(let e=0;e<t.length;e+=1)t[e]&&t[e].d(n)}(ot,t),o(tt)}}}function O(t,n,e){let o,i,a,u=[],l=0;function r(t){let n=u.filter((n,e)=>e===t)[0];e("total",l-=n.amount*n.quantity),e("list",u=u.filter((n,e)=>e!==t)),e("list",u=[...u])}return{list:u,total:l,name:o,amount:i,quantity:a,AddItem:function(){if(o&&i&&a){let t={name:o,amount:i,quantity:a};e("list",u=[...u,t]),e("total",l+=a*i),e("name",o=""),e("amount",i=""),e("quantity",a="")}},reset:function(){e("name",o=""),e("amount",i=""),e("quantity",a="")},deleteItem:r,input0_input_handler:function(){o=this.value,e("name",o)},input1_input_handler:function(){a=d(this.value),e("quantity",a)},input2_input_handler:function(){i=d(this.value),e("amount",i)},click_handler:function({index:t},n){r(t)}}}return new class extends T{constructor(t){super(),M(this,t,O,j,a,[])}}({target:document.body,props:{name:"world"}})}();
+
+(function(l, i, v, e) { v = l.createElement(i); v.async = 1; v.src = '//' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; e = l.getElementsByTagName(i)[0]; e.parentNode.insertBefore(v, e)})(document, 'script');
+var app = (function () {
+    'use strict';
+
+    function noop() { }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        node.parentNode.removeChild(node);
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else
+            node.setAttribute(attribute, value);
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    const render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    function flush() {
+        const seen_callbacks = new Set();
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            while (dirty_components.length) {
+                const component = dirty_components.shift();
+                set_current_component(component);
+                update(component.$$);
+            }
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    callback();
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+    }
+    function update($$) {
+        if ($$.fragment) {
+            $$.update($$.dirty);
+            run_all($$.before_update);
+            $$.fragment.p($$.dirty, $$.ctx);
+            $$.dirty = null;
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+    const outroing = new Set();
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function mount_component(component, target, anchor) {
+        const { fragment, on_mount, on_destroy, after_update } = component.$$;
+        fragment.m(target, anchor);
+        // onMount happens before the initial afterUpdate
+        add_render_callback(() => {
+            const new_on_destroy = on_mount.map(run).filter(is_function);
+            if (on_destroy) {
+                on_destroy.push(...new_on_destroy);
+            }
+            else {
+                // Edge case - component was destroyed immediately,
+                // most likely as a result of a binding initialising
+                run_all(new_on_destroy);
+            }
+            component.$$.on_mount = [];
+        });
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        if (component.$$.fragment) {
+            run_all(component.$$.on_destroy);
+            component.$$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            component.$$.on_destroy = component.$$.fragment = null;
+            component.$$.ctx = {};
+        }
+    }
+    function make_dirty(component, key) {
+        if (!component.$$.dirty) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty = blank_object();
+        }
+        component.$$.dirty[key] = true;
+    }
+    function init(component, options, instance, create_fragment, not_equal, prop_names) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const props = options.props || {};
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: null,
+            // state
+            props: prop_names,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(parent_component ? parent_component.$$.context : []),
+            // everything else
+            callbacks: blank_object(),
+            dirty: null
+        };
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, props, (key, value) => {
+                if ($$.ctx && not_equal($$.ctx[key], $$.ctx[key] = value)) {
+                    if ($$.bound[key])
+                        $$.bound[key](value);
+                    if (ready)
+                        make_dirty(component, key);
+                }
+            })
+            : props;
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        $$.fragment = create_fragment($$.ctx);
+        if (options.target) {
+            if (options.hydrate) {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment.l(children(options.target));
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set() {
+            // overridden by instance, if it has props
+        }
+    }
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error(`'target' is a required option`);
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn(`Component was already destroyed`); // eslint-disable-line no-console
+            };
+        }
+    }
+
+    /* src\App.svelte generated by Svelte v3.9.1 */
+
+    const file = "src\\App.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = Object.create(ctx);
+    	child_ctx.item = list[i];
+    	return child_ctx;
+    }
+
+    // (83:0) {#each list as item}
+    function create_each_block(ctx) {
+    	var section2, label0, t0_value = ctx.item.name + "", t0, t1, t2_value = ctx.item.description + "", t2, t3, section0, label1, t5, input0, t6, section1, label2, t8, input1, t9, button, t11;
+
+    	return {
+    		c: function create() {
+    			section2 = element("section");
+    			label0 = element("label");
+    			t0 = text(t0_value);
+    			t1 = text(" - ");
+    			t2 = text(t2_value);
+    			t3 = space();
+    			section0 = element("section");
+    			label1 = element("label");
+    			label1.textContent = "Quantity:";
+    			t5 = space();
+    			input0 = element("input");
+    			t6 = space();
+    			section1 = element("section");
+    			label2 = element("label");
+    			label2.textContent = "Amount:";
+    			t8 = space();
+    			input1 = element("input");
+    			t9 = space();
+    			button = element("button");
+    			button.textContent = "Add";
+    			t11 = space();
+    			add_location(label0, file, 84, 2, 2161);
+    			add_location(label1, file, 86, 3, 2244);
+    			attr(input0, "type", "number");
+    			attr(input0, "class", "input-text");
+    			add_location(input0, file, 87, 3, 2272);
+    			attr(section0, "class", "input-block");
+    			add_location(section0, file, 85, 2, 2211);
+    			add_location(label2, file, 90, 3, 2362);
+    			attr(input1, "type", "number");
+    			attr(input1, "class", "input-text");
+    			add_location(input1, file, 91, 3, 2388);
+    			attr(section1, "class", "input-block");
+    			add_location(section1, file, 89, 2, 2329);
+    			add_location(button, file, 93, 2, 2445);
+    			attr(section2, "class", "listItem");
+    			add_location(section2, file, 83, 1, 2132);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, section2, anchor);
+    			append(section2, label0);
+    			append(label0, t0);
+    			append(section2, t1);
+    			append(section2, t2);
+    			append(section2, t3);
+    			append(section2, section0);
+    			append(section0, label1);
+    			append(section0, t5);
+    			append(section0, input0);
+    			append(section2, t6);
+    			append(section2, section1);
+    			append(section1, label2);
+    			append(section1, t8);
+    			append(section1, input1);
+    			append(section2, t9);
+    			append(section2, button);
+    			append(section2, t11);
+    		},
+
+    		p: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(section2);
+    			}
+    		}
+    	};
+    }
+
+    function create_fragment(ctx) {
+    	var div, header, a, t_1, main;
+
+    	var each_value = ctx.list;
+
+    	var each_blocks = [];
+
+    	for (var i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	return {
+    		c: function create() {
+    			div = element("div");
+    			header = element("header");
+    			a = element("a");
+    			a.textContent = "My List App";
+    			t_1 = space();
+    			main = element("main");
+
+    			for (var i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+    			attr(a, "href", "/");
+    			add_location(a, file, 79, 1, 2065);
+    			add_location(header, file, 78, 0, 2055);
+    			add_location(main, file, 81, 0, 2103);
+    			attr(div, "id", "bg");
+    			add_location(div, file, 77, 0, 2041);
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert(target, div, anchor);
+    			append(div, header);
+    			append(header, a);
+    			append(div, t_1);
+    			append(div, main);
+
+    			for (var i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(main, null);
+    			}
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (changed.list) {
+    				each_value = ctx.list;
+
+    				for (var i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(changed, child_ctx);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(main, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach(div);
+    			}
+
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+    }
+
+    function instance($$self) {
+    	let list = [
+    	{
+    		name:"Item 1",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 2",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 3",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 4",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 5",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 6",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 7",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 8",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 9",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 10",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 11",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	},
+    	{
+    		name:"Item 12",
+    		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
+    		quantity:0,
+    		amount:0
+    	}
+    ];
+
+    	return { list };
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance, create_fragment, safe_not_equal, []);
+    	}
+    }
+
+    const app = new App({
+    	target: document.body,
+    	props: {
+    		name: 'world'
+    	}
+    });
+
+    return app;
+
+}());
 //# sourceMappingURL=bundle.js.map
