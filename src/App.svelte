@@ -1,78 +1,14 @@
 <script>
 let list = [
 	{
-		name:"Item 1",
-		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
-		quantity:0,
-		amount:0
-	},
-	{
-		name:"Item 2",
-		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
-		quantity:0,
-		amount:0
-	},
-	{
-		name:"Item 3",
-		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
-		quantity:0,
-		amount:0
-	},
-	{
-		name:"Item 4",
-		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
-		quantity:0,
-		amount:0
-	},
-	{
-		name:"Item 5",
-		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
-		quantity:0,
-		amount:0
-	},
-	{
-		name:"Item 6",
-		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
-		quantity:0,
-		amount:0
-	},
-	{
-		name:"Item 7",
-		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
-		quantity:0,
-		amount:0
-	},
-	{
-		name:"Item 8",
-		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
-		quantity:0,
-		amount:0
-	},
-	{
-		name:"Item 9",
-		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
-		quantity:0,
-		amount:0
-	},
-	{
-		name:"Item 10",
-		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
-		quantity:0,
-		amount:0
-	},
-	{
-		name:"Item 11",
-		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
-		quantity:0,
-		amount:0
-	},
-	{
-		name:"Item 12",
-		description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt quam doloribus quasi distinction",
-		quantity:0,
-		amount:0
+		name:"abcd",
+		quantity:10,
+		amount:100
 	}
-]
+];
+let name, amount, quantity;
+
+
 </script>
 
 <div id="bg">
@@ -80,18 +16,30 @@ let list = [
 	<a href="/">My List App</a>
 </header>
 <main>
-{#each list as item}
+<section class="input-form">
+	<section class="input-block">
+		<label>Name:</label>
+		<input type="text" class="input-text" bind:value={name}/>
+	</section>
+	<section class="input-block">
+		<label>Quantity:</label>
+		<input type="number" class="input-text" bind:value={quantity}/>
+	</section>
+	<section class="input-block">
+		<label>Amount:</label>
+		<input type="number" class="input-text" bind:value={amount}/>
+	</section>
+	<button class="success">Add</button>
+	<button class="failure">Reset</button>
+</section>
+{#each list as item,index}
 	<section class="listItem">
-		<label>{item.name}</label> - {item.description}
-		<section class="input-block">
-			<label>Quantity:</label>
-			<input type="number" class="input-text"/>
-		</section>
-		<section class="input-block">
-			<label>Amount:</label>
-			<input type="number" class="input-text"/>
-		</section>
-		<button>Add</button>
+		<p>
+			<label>{index+1}. {item.name}</label><br/>
+			<label>Quantity</label> - {item.quantity}<br/>
+			<label>Amount</label> - {item.amount}
+		</p>
+		<button class="failure">Delete</button>
 	</section>
 {/each}
 </main>
