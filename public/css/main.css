@@ -19,21 +19,6 @@ body #bg {
   z-index: 0;
 }
 
-@media (min-width: 600px) {
-  body #bg {
-    -webkit-clip-path: polygon(90% 0, 100% 10%, 100% 100%, 0 100%, 0 0);
-            clip-path: polygon(90% 0, 100% 10%, 100% 100%, 0 100%, 0 0);
-  }
-}
-
-@media (min-width: 800px) {
-  body #bg {
-    -webkit-clip-path: polygon(90% 0, 100% 10%, 100% 100%, 0 100%, 0 0);
-            clip-path: polygon(90% 0, 100% 10%, 100% 100%, 0 100%, 0 0);
-    padding: 15px 30px;
-  }
-}
-
 body header a {
   color: white;
   text-decoration: none;
@@ -71,33 +56,9 @@ button.failure {
   background-color: firebrick;
 }
 
-@media (min-width: 600px) {
-  main {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: auto auto;
-        grid-template-columns: auto auto;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-  }
-}
-
-@media (min-width: 800px) {
-  main {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: auto auto auto;
-        grid-template-columns: auto auto auto;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-  }
-}
-
 main section.input-form {
   background: white;
-  z-index: 0;
+  z-index: -1;
   padding: 20px;
   margin: 1em auto;
   border-radius: 15px;
@@ -111,18 +72,8 @@ main section.input-form label {
   font-weight: bold;
 }
 
-@media (min-width: 800px) {
-  main section.input-form {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    width: 80%;
-  }
-}
-
 main section.listItem {
   background: white;
-  z-index: 0;
   padding: 20px;
   margin: 1em auto;
   border-radius: 15px;
@@ -140,15 +91,6 @@ main section.listItem label {
 main section.listItem span {
   font-weight: lighter;
   color: royalblue;
-}
-
-@media (min-width: 800px) {
-  main section.listItem {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    width: 80%;
-  }
 }
 
 .input-block {

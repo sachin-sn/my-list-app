@@ -21,19 +21,19 @@ $colors: (
   @return map-get($colors,$color-name)
 }
 
-$desktop: 800px;
-@mixin desktop {
-  @media (min-width:#{$desktop}){
-    @content;
-  }
-}
+ $desktop: 800px;
+// @mixin desktop {
+//   @media (min-width:#{$desktop}){
+//     @content;
+//   }
+// }
 
-$tablet: 600px;
-@mixin tablet {
-  @media (min-width:#{$tablet}){
-    @content;
-  }
-}
+ $tablet: 600px;
+// @mixin tablet {
+//   @media (min-width:#{$tablet}){
+//     @content;
+//   }
+// }
 
 body, html{
   height:100%;
@@ -52,13 +52,6 @@ body{
     height: auto;
     position: absolute;
     z-index:0;
-    @include tablet {
-      clip-path: polygon(90% 0, 100% 10%, 100% 100%, 0 100%, 0 0);
-    }
-    @include desktop {
-      clip-path: polygon(90% 0, 100% 10%, 100% 100%, 0 100%, 0 0);
-      padding: map-get($paddings, content) map-get($paddings, content)*2;
-    }
   }
 
   header a {
@@ -96,20 +89,9 @@ button {
 
 main{
   
-  @include tablet {
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: space-evenly;
-  }
-
-  @include desktop {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    justify-content: space-evenly;
-  }
   section.input-form{
     background: white;
-    z-index: 0;
+    z-index: -1;
     padding: 20px;
     margin: 1em auto;
     border-radius: $borders;
@@ -119,15 +101,10 @@ main{
     label{
       font-weight: bold;
     }
-    @include desktop {
-      height: fit-content;
-      width:max(80%);
-    }
   }
 
   section.listItem{
     background: white;
-    z-index: 0;
     padding: 20px;
     margin: 1em auto;
     border-radius: $borders;
@@ -141,10 +118,6 @@ main{
     span{
       font-weight: lighter;
       color:color(active-color);
-    }
-    @include desktop {
-      height: fit-content;
-      width:max(80%);
     }
   }
 }
