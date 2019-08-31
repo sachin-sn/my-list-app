@@ -4,7 +4,47 @@ let list = [
 let total = 0;
 
 let name, amount, quantity;
+function httpGet() {
+	fetch('https://zb4n1zisp5.execute-api.us-east-1.amazonaws.com/dev/getalldata/',{
+		method: 'GET',
+		headers: {
+		'Content-Type': 'application/json'
+		}
+	})
+	.then((response)=>{
+		if(response.status ==200) {
+			return response.json();
+		}
+	})
+}
+function httpPost(payload) {
+	fetch('https://zb4n1zisp5.execute-api.us-east-1.amazonaws.com/dev/savedata',{
+    method: 'POST',
+    body: JSON.stringify(payload),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+	.then((response)=>{
+		if(response.status ==200) {
+			return response.json();
+		}
+	})
+}
+function getData () {
+	let data = httpGet()
+	if(data){
+		data = JSON.parse(data)
+		list = [...data]
+	}
+} 
 
+function saveData () {
+	httpPost (list)
+}
+
+setInterval(getData(),1000);
+ 
 function AddItem(){
 	if(name && amount && quantity){
 		let newItem = {
@@ -17,6 +57,7 @@ function AddItem(){
 		name = "";
 		amount="";
 		quantity="";
+		saveData();
 	}
 }
 function reset(){
