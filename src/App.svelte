@@ -5,45 +5,48 @@ let total = 0;
 
 let name, amount, quantity;
 function httpGet() {
-	fetch('https://zb4n1zisp5.execute-api.us-east-1.amazonaws.com/dev/getalldata/',{
+	return fetch('https://zb4n1zisp5.execute-api.us-east-1.amazonaws.com/dev/getalldata/',{
 		method: 'GET',
 		headers: {
-		'Content-Type': 'application/json'
+      	'Content-Type': 'application/json'
 		}
 	})
 	.then((response)=>{
 		if(response.status ==200) {
-			return response.json();
+			return response.json()	;
 		}
 	})
 }
 function httpPost(payload) {
-	fetch('https://zb4n1zisp5.execute-api.us-east-1.amazonaws.com/dev/savedata',{
+	return fetch('https://zb4n1zisp5.execute-api.us-east-1.amazonaws.com/dev/savedata',{
     method: 'POST',
     body: JSON.stringify(payload),
     headers: {
-      'Content-Type': 'application/json'
+      	'Content-Type': 'application/json'
     }
   })
 	.then((response)=>{
 		if(response.status ==200) {
 			return response.json();
 		}
+		return response.reject();
 	})
 }
+
 function getData () {
-	let data = httpGet()
-	if(data){
-		data = JSON.parse(data)
-		list = [...data]
-	}
-} 
+	httpGet().then(data=>{
+		if(data){
+			data = JSON.parse(data)
+			list = [...data]
+		}
+	});
+}
 
 function saveData () {
 	httpPost (list)
 }
 
-setInterval(getData(),1000);
+setInterval(getData(),10000);
  
 function AddItem(){
 	if(name && amount && quantity){
@@ -71,6 +74,7 @@ function deleteItem(itemIndex){
 	total = total - (delItem.amount * delItem.quantity);
 	list = list.filter((item,index)=>index!==itemIndex);
 	list = [...list];
+		saveData();
 }
 
 </script>

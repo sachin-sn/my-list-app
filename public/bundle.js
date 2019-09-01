@@ -275,7 +275,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (115:2) {#each list as item,index}
+    // (119:2) {#each list as item,index}
     function create_each_block(ctx) {
     	var tr, td0, t0_value = ctx.index+1 + "", t0, t1, td1, t2_value = ctx.item.name + "", t2, t3, td2, t4_value = ctx.item.quantity + "", t4, t5, td3, t6_value = ctx.item.amount + "", t6, t7, td4, t8_value = ctx.item.amount * ctx.item.quantity + "", t8, t9, td5, button, t11, dispose;
 
@@ -305,15 +305,15 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Delete";
     			t11 = space();
-    			add_location(td0, file, 116, 4, 2377);
-    			add_location(td1, file, 117, 4, 2400);
-    			add_location(td2, file, 118, 4, 2425);
-    			add_location(td3, file, 119, 4, 2454);
-    			add_location(td4, file, 120, 4, 2481);
+    			add_location(td0, file, 120, 4, 2452);
+    			add_location(td1, file, 121, 4, 2475);
+    			add_location(td2, file, 122, 4, 2500);
+    			add_location(td3, file, 123, 4, 2529);
+    			add_location(td4, file, 124, 4, 2556);
     			attr(button, "class", "failure sm");
-    			add_location(button, file, 121, 8, 2528);
-    			add_location(td5, file, 121, 4, 2524);
-    			add_location(tr, file, 115, 3, 2368);
+    			add_location(button, file, 125, 8, 2603);
+    			add_location(td5, file, 125, 4, 2599);
+    			add_location(tr, file, 119, 3, 2443);
     			dispose = listen(button, "click", click_handler);
     		},
 
@@ -451,53 +451,53 @@ var app = (function () {
     				each_blocks[i].c();
     			}
     			attr(a, "href", "/");
-    			add_location(a, file, 79, 1, 1409);
-    			add_location(header, file, 78, 0, 1399);
-    			add_location(label0, file, 84, 2, 1516);
+    			add_location(a, file, 83, 1, 1484);
+    			add_location(header, file, 82, 0, 1474);
+    			add_location(label0, file, 88, 2, 1591);
     			attr(input0, "type", "text");
     			attr(input0, "class", "input-text");
-    			add_location(input0, file, 85, 2, 1539);
+    			add_location(input0, file, 89, 2, 1614);
     			attr(section0, "class", "input-block");
-    			add_location(section0, file, 83, 1, 1484);
-    			add_location(label1, file, 88, 2, 1642);
+    			add_location(section0, file, 87, 1, 1559);
+    			add_location(label1, file, 92, 2, 1717);
     			attr(input1, "type", "number");
     			attr(input1, "class", "input-text");
-    			add_location(input1, file, 89, 2, 1669);
+    			add_location(input1, file, 93, 2, 1744);
     			attr(section1, "class", "input-block");
-    			add_location(section1, file, 87, 1, 1610);
-    			add_location(label2, file, 92, 2, 1778);
+    			add_location(section1, file, 91, 1, 1685);
+    			add_location(label2, file, 96, 2, 1853);
     			attr(input2, "type", "number");
     			attr(input2, "class", "input-text");
-    			add_location(input2, file, 93, 2, 1812);
+    			add_location(input2, file, 97, 2, 1887);
     			attr(section2, "class", "input-block");
-    			add_location(section2, file, 91, 1, 1746);
+    			add_location(section2, file, 95, 1, 1821);
     			attr(button0, "class", "success");
-    			add_location(button0, file, 95, 1, 1887);
+    			add_location(button0, file, 99, 1, 1962);
     			attr(button1, "class", "failure rt");
-    			add_location(button1, file, 96, 1, 1944);
+    			add_location(button1, file, 100, 1, 2019);
     			attr(section3, "class", "input-form");
-    			add_location(section3, file, 82, 0, 1454);
-    			add_location(label3, file, 100, 2, 2048);
-    			add_location(span0, file, 100, 29, 2075);
-    			add_location(br, file, 100, 49, 2095);
-    			add_location(label4, file, 101, 2, 2103);
-    			add_location(span1, file, 101, 36, 2137);
-    			add_location(p, file, 99, 1, 2042);
+    			add_location(section3, file, 86, 0, 1529);
+    			add_location(label3, file, 104, 2, 2123);
+    			add_location(span0, file, 104, 29, 2150);
+    			add_location(br, file, 104, 49, 2170);
+    			add_location(label4, file, 105, 2, 2178);
+    			add_location(span1, file, 105, 36, 2212);
+    			add_location(p, file, 103, 1, 2117);
     			attr(section4, "class", "listItem");
-    			add_location(section4, file, 98, 0, 2014);
-    			add_location(th0, file, 107, 3, 2229);
-    			add_location(th1, file, 108, 3, 2243);
-    			add_location(th2, file, 109, 3, 2260);
-    			add_location(th3, file, 110, 3, 2276);
-    			add_location(th4, file, 111, 3, 2294);
-    			add_location(th5, file, 112, 3, 2312);
-    			add_location(tr, file, 106, 2, 2221);
-    			add_location(table, file, 105, 2, 2211);
+    			add_location(section4, file, 102, 0, 2089);
+    			add_location(th0, file, 111, 3, 2304);
+    			add_location(th1, file, 112, 3, 2318);
+    			add_location(th2, file, 113, 3, 2335);
+    			add_location(th3, file, 114, 3, 2351);
+    			add_location(th4, file, 115, 3, 2369);
+    			add_location(th5, file, 116, 3, 2387);
+    			add_location(tr, file, 110, 2, 2296);
+    			add_location(table, file, 109, 2, 2286);
     			attr(section5, "class", "listItem");
-    			add_location(section5, file, 104, 1, 2182);
-    			add_location(main, file, 81, 0, 1447);
+    			add_location(section5, file, 108, 1, 2257);
+    			add_location(main, file, 85, 0, 1522);
     			attr(div, "id", "bg");
-    			add_location(div, file, 77, 0, 1385);
+    			add_location(div, file, 81, 0, 1460);
 
     			dispose = [
     				listen(input0, "input", ctx.input0_input_handler),
@@ -630,32 +630,33 @@ var app = (function () {
     }
 
     function httpGet() {
-    fetch('https://zb4n1zisp5.execute-api.us-east-1.amazonaws.com/dev/getalldata/',{
+    return fetch('https://zb4n1zisp5.execute-api.us-east-1.amazonaws.com/dev/getalldata/',{
     	method: 'GET',
     	headers: {
-    	'Content-Type': 'application/json'
+          	'Content-Type': 'application/json'
     	}
     })
     .then((response)=>{
     	if(response.status ==200) {
-    		return response.json();
+    		return response.json()	;
     	}
-    });
+    })
     }
 
     function httpPost(payload) {
-    fetch('https://zb4n1zisp5.execute-api.us-east-1.amazonaws.com/dev/savedata',{
+    return fetch('https://zb4n1zisp5.execute-api.us-east-1.amazonaws.com/dev/savedata',{
         method: 'POST',
         body: JSON.stringify(payload),
         headers: {
-          'Content-Type': 'application/json'
+          	'Content-Type': 'application/json'
         }
       })
     .then((response)=>{
     	if(response.status ==200) {
     		return response.json();
     	}
-    });
+    	return response.reject();
+    })
     }
 
     function instance($$self, $$props, $$invalidate) {
@@ -664,19 +665,21 @@ var app = (function () {
     let total = 0;
 
     let name, amount, quantity;
+
     function getData () {
-    	let data = httpGet();
-    	if(data){
-    		data = JSON.parse(data);
-    		$$invalidate('list', list = [...data]);
-    	}
-    } 
+    	httpGet().then(data=>{
+    		if(data){
+    			data = JSON.parse(data);
+    			$$invalidate('list', list = [...data]);
+    		}
+    	});
+    }
 
     function saveData () {
     	httpPost (list);
     }
 
-    setInterval(getData(),1000);
+    setInterval(getData(),10000);
      
     function AddItem(){
     	if(name && amount && quantity){
@@ -704,6 +707,7 @@ var app = (function () {
     	$$invalidate('total', total = total - (delItem.amount * delItem.quantity));
     	$$invalidate('list', list = list.filter((item,index)=>index!==itemIndex));
     	$$invalidate('list', list = [...list]);
+    		saveData();
     }
 
     	function input0_input_handler() {
