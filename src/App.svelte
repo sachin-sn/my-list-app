@@ -33,20 +33,25 @@ function httpPost(payload) {
 	})
 }
 
-function getData () {
+
+function saveData () {
+	httpPost ([...list]).then(data =>{
+		console.log(data)
+	});
+}
+
+setInterval(() =>{
 	httpGet().then(data=>{
 		if(data){
 			data = JSON.parse(data)
 			list = [...data]
+			total = 0;
+			list.forEach(item =>{
+				total = total + (item.quantity*item.amount);
+			})
 		}
 	});
-}
-
-function saveData () {
-	httpPost (list)
-}
-
-setInterval(getData(),10000);
+},10000);
  
 function AddItem(){
 	if(name && amount && quantity){
@@ -127,13 +132,6 @@ function deleteItem(itemIndex){
 			</tr>
 		{/each}
 		</table>
-		<!-- <p>
-			<label>{index+1}. {item.name}</label><br/>
-			<label>Quantity</label> : <span>{item.quantity}</span><br/>
-			<label>M.R.P per piece</label> : <span>{item.amount}</span><br/>
-			<label>Total price</label> : <span>{item.amount * item.quantity}</span>
-		</p> 
-		<button class="failure" on:click={(e)=>{deleteItem(index)}}>Delete</button>-->
 	</section>
 </main>
 </div>
