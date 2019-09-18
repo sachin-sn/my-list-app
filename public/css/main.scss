@@ -37,12 +37,29 @@ body, html{
 *{
   font-family: 'Montserrat';
 }
+nav ul {
+  display: flex;
+  list-style-type: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+:global(header a) {
+  padding: 1em;
+  display: block;
+  color: white !important;
+}
+
+:global(.logo) { 
+  font-weight: bold;
+}
+
 body{
   font-size: 3em;
   padding: 0;
   margin: 0;
   @include desktop {
-    font-size: 0.5em;
+    font-size: 1em;
   }
   #bg{
     clip-path: polygon(95% 0, 100% 5%, 100% 100%, 0 100%, 0 0);
@@ -64,6 +81,9 @@ body{
     display: block;
     font-weight: bold;
     text-align: center;
+    @include desktop {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -96,7 +116,7 @@ button {
     font-size: 1em;
   }
   @include desktop {
-    font-size: 0.5em;
+    font-size: 1em;
     border-bottom: 4px solid darkslategray;
     padding: map-get($paddings,desktop-btn);
     &:hover{
@@ -108,7 +128,8 @@ button {
 main{
    @include desktop{
      display: grid;
-     grid-template-columns: auto auto auto;
+     grid-template-columns: auto auto;
+     grid-template-rows: auto;
    }
   section.input-form{
     background: white;
@@ -156,7 +177,7 @@ main{
 .input-block{
   margin: 1em auto;
   @include desktop {
-    grid-column: 1 / span 4;
+    grid-column: 2;
   }
   .input-text{
     width:99%;

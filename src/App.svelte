@@ -1,14 +1,22 @@
 <script>
-import List from './container/List.svelte'
-import Login from './container/Login.svelte'
-import Register from './container/Register.svelte'
+	import { Router, Route, Link } from 'svero';
+	import List from './container/List.svelte'
+	import Login from './container/Login.svelte'
+	import Register from './container/Register.svelte'
 </script>
 
 <div id="bg">
 <header>
-	<a href="/">My List App</a>
+	<Link href="/" className="logo">My List App</Link>
+    <nav>
+        <ul>
+            <li><Link href="/">HOME</Link></li>
+        </ul>
+    </nav>
 </header>
-<Login />
-<Register />
-<List />
+<Router>
+	<Route exact path="/" component={List}/>
+	<Route path="/register" component={Register}/>
+	<Route path="/login" component={Login}/>
+</Router>
 </div>
