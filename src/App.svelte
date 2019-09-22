@@ -3,19 +3,21 @@
 	import List from './container/List.svelte'
 	import Login from './container/Login.svelte'
 	import Register from './container/Register.svelte'
+	import Home from './container/Home.svelte'
 </script>
 
 <div id="bg">
 <header>
-	<Link href="/" className="logo">My List App</Link>
+	<Link href="/home" className="logo">My List App</Link>
     <nav>
         <ul>
-            <li><Link href="/">HOME</Link></li>
+            <li><Link href="/login">Login/Join session</Link></li>
         </ul>
     </nav>
 </header>
 <Router>
-	<Route exact path="/" component={List}/>
+	<Route path="/home" component={Home}/>
+	<Route path="/list" component={List}/>
 	<Route path="/register" component={Register}/>
 	<Route path="/login" component={Login}/>
 </Router>

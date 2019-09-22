@@ -1,8 +1,14 @@
 <script>
-let email, password
+import Join from './Join.svelte'
+let email, password;
+
+function joinSession(){
+
+}
 </script>
 
 <main>
+<Join />
 <section class="input-form">
     <section class="input-block">
 		<label>Email:</label>
