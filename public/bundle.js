@@ -1740,9 +1740,9 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (94:2) {#each list as item,index}
+    // (109:6) {#each list as item, index}
     function create_each_block(ctx) {
-    	var tr, td0, t0_value = ctx.index+1 + "", t0, t1, td1, t2_value = ctx.item.name + "", t2, t3, td2, t4_value = ctx.item.quantity + "", t4, t5, td3, t6_value = ctx.item.amount + "", t6, t7, td4, t8_value = ctx.item.amount * ctx.item.quantity + "", t8, t9, td5, button, t11, dispose;
+    	var tr, td0, t0_value = ctx.index + 1 + "", t0, t1, td1, t2_value = ctx.item.name + "", t2, t3, td2, t4_value = ctx.item.quantity + "", t4, t5, td3, t6_value = ctx.item.amount + "", t6, t7, td4, t8_value = parseFloat(ctx.item.amount * ctx.item.quantity).toFixed(2) + "", t8, t9, td5, button, t11, dispose;
 
     	function click_handler(...args) {
     		return ctx.click_handler(ctx, ...args);
@@ -1770,15 +1770,15 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Delete";
     			t11 = space();
-    			add_location(td0, file$2, 95, 4, 1917);
-    			add_location(td1, file$2, 96, 4, 1940);
-    			add_location(td2, file$2, 97, 4, 1965);
-    			add_location(td3, file$2, 98, 4, 1994);
-    			add_location(td4, file$2, 99, 4, 2021);
+    			add_location(td0, file$2, 110, 10, 2556);
+    			add_location(td1, file$2, 111, 10, 2587);
+    			add_location(td2, file$2, 112, 10, 2618);
+    			add_location(td3, file$2, 113, 10, 2653);
+    			add_location(td4, file$2, 114, 10, 2686);
     			attr(button, "class", "failure sm");
-    			add_location(button, file$2, 100, 8, 2068);
-    			add_location(td5, file$2, 100, 4, 2064);
-    			add_location(tr, file$2, 94, 3, 1908);
+    			add_location(button, file$2, 116, 12, 2775);
+    			add_location(td5, file$2, 115, 10, 2758);
+    			add_location(tr, file$2, 109, 8, 2541);
     			dispose = listen(button, "click", click_handler);
     		},
 
@@ -1818,7 +1818,7 @@ var app = (function () {
     				set_data(t6, t6_value);
     			}
 
-    			if ((changed.list) && t8_value !== (t8_value = ctx.item.amount * ctx.item.quantity + "")) {
+    			if ((changed.list) && t8_value !== (t8_value = parseFloat(ctx.item.amount * ctx.item.quantity).toFixed(2) + "")) {
     				set_data(t8, t8_value);
     			}
     		},
@@ -1834,7 +1834,7 @@ var app = (function () {
     }
 
     function create_fragment$3(ctx) {
-    	var main, section3, section0, label0, t1, input0, t2, section1, label1, t4, input1, t5, section2, label2, t7, input2, t8, button0, t10, button1, t12, section4, p, label3, span0, t14, br, t15, label4, span1, t17_value = ctx.list.length + "", t17, t18, section5, table, tr, th0, t20, th1, t22, th2, t24, th3, t26, th4, t28, th5, t30, dispose;
+    	var main, section3, section0, label0, t1, input0, t2, section1, label1, t4, input1, t5, section2, label2, t7, input2, t8, button0, t10, button1, t12, section4, p, label3, t14, span0, t15, t16, br, t17, label4, t19, span1, t20_value = ctx.list.length + "", t20, t21, section5, table, tr, th0, t23, th1, t25, th2, t27, th3, t29, th4, t31, th5, t33, dispose;
 
     	var each_value = ctx.list;
 
@@ -1875,84 +1875,87 @@ var app = (function () {
     			section4 = element("section");
     			p = element("p");
     			label3 = element("label");
-    			label3.textContent = "Total cost: ";
+    			label3.textContent = "Total cost:";
+    			t14 = space();
     			span0 = element("span");
-    			t14 = text(ctx.total);
+    			t15 = text(ctx.total);
+    			t16 = space();
     			br = element("br");
-    			t15 = space();
+    			t17 = space();
     			label4 = element("label");
-    			label4.textContent = "Total no of Items: ";
+    			label4.textContent = "Total no of Items:";
+    			t19 = space();
     			span1 = element("span");
-    			t17 = text(t17_value);
-    			t18 = space();
+    			t20 = text(t20_value);
+    			t21 = space();
     			section5 = element("section");
     			table = element("table");
     			tr = element("tr");
     			th0 = element("th");
     			th0.textContent = "#";
-    			t20 = space();
+    			t23 = space();
     			th1 = element("th");
     			th1.textContent = "Name";
-    			t22 = space();
+    			t25 = space();
     			th2 = element("th");
     			th2.textContent = "Qty";
-    			t24 = space();
+    			t27 = space();
     			th3 = element("th");
     			th3.textContent = "M.R.P";
-    			t26 = space();
+    			t29 = space();
     			th4 = element("th");
     			th4.textContent = "Total";
-    			t28 = space();
+    			t31 = space();
     			th5 = element("th");
     			th5.textContent = "Action";
-    			t30 = space();
+    			t33 = space();
 
     			for (var i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
-    			add_location(label0, file$2, 63, 2, 1056);
+    			add_location(label0, file$2, 75, 6, 1554);
     			attr(input0, "type", "text");
     			attr(input0, "class", "input-text");
-    			add_location(input0, file$2, 64, 2, 1079);
+    			add_location(input0, file$2, 76, 6, 1581);
     			attr(section0, "class", "input-block");
-    			add_location(section0, file$2, 62, 1, 1024);
-    			add_location(label1, file$2, 67, 2, 1182);
+    			add_location(section0, file$2, 74, 4, 1518);
+    			add_location(label1, file$2, 79, 6, 1695);
     			attr(input1, "type", "number");
     			attr(input1, "class", "input-text");
-    			add_location(input1, file$2, 68, 2, 1209);
+    			add_location(input1, file$2, 80, 6, 1726);
     			attr(section1, "class", "input-block");
-    			add_location(section1, file$2, 66, 1, 1150);
-    			add_location(label2, file$2, 71, 2, 1318);
+    			add_location(section1, file$2, 78, 4, 1659);
+    			add_location(label2, file$2, 83, 6, 1846);
     			attr(input2, "type", "number");
     			attr(input2, "class", "input-text");
-    			add_location(input2, file$2, 72, 2, 1352);
+    			add_location(input2, file$2, 84, 6, 1884);
     			attr(section2, "class", "input-block");
-    			add_location(section2, file$2, 70, 1, 1286);
+    			add_location(section2, file$2, 82, 4, 1810);
     			attr(button0, "class", "success");
-    			add_location(button0, file$2, 74, 1, 1427);
+    			add_location(button0, file$2, 86, 4, 1966);
     			attr(button1, "class", "failure rt");
-    			add_location(button1, file$2, 75, 1, 1484);
+    			add_location(button1, file$2, 87, 4, 2026);
     			attr(section3, "class", "input-form");
-    			add_location(section3, file$2, 61, 0, 994);
-    			add_location(label3, file$2, 79, 2, 1588);
-    			add_location(span0, file$2, 79, 29, 1615);
-    			add_location(br, file$2, 79, 49, 1635);
-    			add_location(label4, file$2, 80, 2, 1643);
-    			add_location(span1, file$2, 80, 36, 1677);
-    			add_location(p, file$2, 78, 1, 1582);
+    			add_location(section3, file$2, 73, 2, 1485);
+    			add_location(label3, file$2, 91, 6, 2141);
+    			add_location(span0, file$2, 92, 6, 2174);
+    			add_location(br, file$2, 93, 6, 2201);
+    			add_location(label4, file$2, 94, 6, 2214);
+    			add_location(span1, file$2, 95, 6, 2254);
+    			add_location(p, file$2, 90, 4, 2131);
     			attr(section4, "class", "listItem");
-    			add_location(section4, file$2, 77, 0, 1554);
-    			add_location(th0, file$2, 86, 3, 1769);
-    			add_location(th1, file$2, 87, 3, 1783);
-    			add_location(th2, file$2, 88, 3, 1800);
-    			add_location(th3, file$2, 89, 3, 1816);
-    			add_location(th4, file$2, 90, 3, 1834);
-    			add_location(th5, file$2, 91, 3, 1852);
-    			add_location(tr, file$2, 85, 2, 1761);
-    			add_location(table, file$2, 84, 2, 1751);
+    			add_location(section4, file$2, 89, 2, 2100);
+    			add_location(th0, file$2, 101, 8, 2363);
+    			add_location(th1, file$2, 102, 8, 2382);
+    			add_location(th2, file$2, 103, 8, 2404);
+    			add_location(th3, file$2, 104, 8, 2425);
+    			add_location(th4, file$2, 105, 8, 2448);
+    			add_location(th5, file$2, 106, 8, 2471);
+    			add_location(tr, file$2, 100, 6, 2350);
+    			add_location(table, file$2, 99, 4, 2336);
     			attr(section5, "class", "listItem");
-    			add_location(section5, file$2, 83, 1, 1722);
-    			add_location(main, file$2, 60, 0, 987);
+    			add_location(section5, file$2, 98, 2, 2305);
+    			add_location(main, file$2, 72, 0, 1476);
 
     			dispose = [
     				listen(input0, "input", ctx.input0_input_handler),
@@ -2001,29 +2004,32 @@ var app = (function () {
     			append(main, section4);
     			append(section4, p);
     			append(p, label3);
+    			append(p, t14);
     			append(p, span0);
-    			append(span0, t14);
+    			append(span0, t15);
+    			append(p, t16);
     			append(p, br);
-    			append(p, t15);
+    			append(p, t17);
     			append(p, label4);
+    			append(p, t19);
     			append(p, span1);
-    			append(span1, t17);
-    			append(main, t18);
+    			append(span1, t20);
+    			append(main, t21);
     			append(main, section5);
     			append(section5, table);
     			append(table, tr);
     			append(tr, th0);
-    			append(tr, t20);
+    			append(tr, t23);
     			append(tr, th1);
-    			append(tr, t22);
+    			append(tr, t25);
     			append(tr, th2);
-    			append(tr, t24);
+    			append(tr, t27);
     			append(tr, th3);
-    			append(tr, t26);
+    			append(tr, t29);
     			append(tr, th4);
-    			append(tr, t28);
+    			append(tr, t31);
     			append(tr, th5);
-    			append(table, t30);
+    			append(table, t33);
 
     			for (var i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(table, null);
@@ -2036,11 +2042,11 @@ var app = (function () {
     			if (changed.amount) set_input_value(input2, ctx.amount);
 
     			if (changed.total) {
-    				set_data(t14, ctx.total);
+    				set_data(t15, ctx.total);
     			}
 
-    			if ((changed.list) && t17_value !== (t17_value = ctx.list.length + "")) {
-    				set_data(t17, t17_value);
+    			if ((changed.list) && t20_value !== (t20_value = ctx.list.length + "")) {
+    				set_data(t20, t20_value);
     			}
 
     			if (changed.list) {
@@ -2081,59 +2087,73 @@ var app = (function () {
     }
 
     function instance$3($$self, $$props, $$invalidate) {
-    	let list = [
-    ];
-    let total = 0;
+    	
 
-    let name, amount, quantity;
+      let list = [];
+      let total = 0;
 
-    function saveData () {
-    	httpPost ([...list]).then(data =>{
-    		console.log(data);
+      let name, amount, quantity;
+
+      function saveData() {
+        httpPost([...list]).then(data => {
+          console.log(data);
+        });
+      }
+
+      onMount(()=>{
+    		httpGet().then(data => {
+          if (data) {
+            data = JSON.parse(data);
+            $$invalidate('list', list = [...data]);
+            $$invalidate('total', total = 0);
+            list.forEach(item => {
+              $$invalidate('total', total = total + item.quantity * item.amount);
+            });
+          }
+        });
     	});
-    }
 
-    setInterval(() =>{
-    	httpGet().then(data=>{
-    		if(data){
-    			data = JSON.parse(data);
-    			$$invalidate('list', list = [...data]);
-    			$$invalidate('total', total = 0);
-    			list.forEach(item =>{
-    				$$invalidate('total', total = total + (item.quantity*item.amount));
-    			});
-    		}
-    	});
-    },10000);
-     
-    function AddItem(){
-    	if(name && amount && quantity){
-    		let newItem = {
-    			name:name,
-    			amount:amount,
-    			quantity:quantity
-    		};
-    		$$invalidate('list', list = [...list,newItem]);
-    		$$invalidate('total', total = total + (quantity*amount));
-    		$$invalidate('name', name = "");
-    		$$invalidate('amount', amount="");
-    		$$invalidate('quantity', quantity="");
-    		saveData();
-    	}
-    }
-    function reset(){
-    	$$invalidate('name', name = "");
-    	$$invalidate('amount', amount = "");
-    	$$invalidate('quantity', quantity="");
-    }
+      setInterval(() => {
+        httpGet().then(data => {
+          if (data) {
+            data = JSON.parse(data);
+            $$invalidate('list', list = [...data]);
+            $$invalidate('total', total = 0);
+            list.forEach(item => {
+              $$invalidate('total', total = total + item.quantity * item.amount);
+            });
+          }
+        });
+      }, 3000);
 
-    function deleteItem(itemIndex){
-    	let delItem = list.filter((item,index)=>index===itemIndex)[0];
-    	$$invalidate('total', total = total - (delItem.amount * delItem.quantity));
-    	$$invalidate('list', list = list.filter((item,index)=>index!==itemIndex));
-    	$$invalidate('list', list = [...list]);
-    		saveData();
-    }
+      function AddItem() {
+        if (name && amount && quantity) {
+          let newItem = {
+            name: name,
+            amount: amount,
+            quantity: quantity
+          };
+          $$invalidate('list', list = [...list, newItem]);
+    			$$invalidate('total', total = total + quantity * amount);
+          $$invalidate('name', name = "");
+          $$invalidate('amount', amount = "");
+          $$invalidate('quantity', quantity = "");
+          saveData();
+        }
+      }
+      function reset() {
+        $$invalidate('name', name = "");
+        $$invalidate('amount', amount = "");
+        $$invalidate('quantity', quantity = "");
+      }
+
+      function deleteItem(itemIndex) {
+        let delItem = list.filter((item, index) => index === itemIndex)[0];
+        $$invalidate('total', total = total - delItem.amount * delItem.quantity);
+        $$invalidate('list', list = list.filter((item, index) => index !== itemIndex));
+        $$invalidate('list', list = [...list]);
+        saveData();
+      }
 
     	function input0_input_handler() {
     		name = this.value;
@@ -2150,7 +2170,9 @@ var app = (function () {
     		$$invalidate('amount', amount);
     	}
 
-    	function click_handler({ index }, e) {deleteItem(index);}
+    	function click_handler({ index }, e) {
+    	                deleteItem(index);
+    	              }
 
     	return {
     		list,

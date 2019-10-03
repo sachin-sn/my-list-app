@@ -32,6 +32,7 @@ $colors: (
 
 body, html{
   height:100%;
+  width: 100%;
 }
 
 *{
@@ -62,15 +63,11 @@ body{
     font-size: 1em;
   }
   #bg{
-    clip-path: polygon(95% 0, 100% 5%, 100% 100%, 0 100%, 0 0);
     background: color(background);
     width: 100%;
     height: auto;
     position: absolute;
     z-index:0;
-    @include desktop {
-      clip-path: polygon(95% 0, 100% 25%, 100% 100%, 0 100%, 0 0);
-    }
   }
 
   header a {
@@ -140,6 +137,7 @@ main{
     border: 4px solid lighten(color(border), 25%);
     box-shadow: 0 10px 30px rgba(0,0,0,.3);
     width:80%;
+    clip-path: polygon(95% 0, 100% 5%, 100% 100%, 0 100%, 0 0);
     label{
       font-weight: bold;
     }
@@ -147,12 +145,12 @@ main{
 
   section.listItem{
     background: white;
-    padding: 60px;
+    padding: 40px;
     margin: 1em auto;
     border-radius: $borders;
     border: 4px solid lighten(color(border), 25%);
     box-shadow: 0 10px 30px rgba(0,0,0,.3);
-    width:80%;
+    width:85%;
     line-height: 1.5em;
     label{
       font-weight: bold;
@@ -162,13 +160,17 @@ main{
       color:color(active-color);
     }
     table{
-      font-size: 0.75em;
+      font-size: 0.65em;  
       border-collapse: collapse;
       width: 100%;
+      th{
+        font-weight: bold;
+        background: color(success);
+        color:white;
+      }
       td, th{
         border: 2px solid lighten(color(border), 25%);
-        padding:1px 18px;
-        align-content:center;
+        padding:1px 10px;
       }
     }
   }
